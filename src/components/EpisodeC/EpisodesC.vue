@@ -23,6 +23,7 @@
          }
       },
       created() {
+         console.log(this.idForm)
          axios.get('http://localhost:4000/episodes/' + this.idForm).then((res) => {
             this.eps = res.data
          })

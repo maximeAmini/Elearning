@@ -8,7 +8,7 @@ export default createStore({
       return {
          _SESSION: {
             idUser: -1,
-            connected: true,
+            connected: false,
             token: ""
          }
       }

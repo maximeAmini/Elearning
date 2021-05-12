@@ -7,6 +7,8 @@ import Formations from '../views/Formations/Formations.vue'
 import AddF from '../views/Formations/AddF.vue'
 import OneF from '../views/Formations/OneF.vue'
 import Episode from '../views/Episodes/Episode.vue'
+import E500 from '../views/Error/500.vue'
+import E404 from '../views/Error/404.vue'
 
 const routes = [
   {
@@ -49,6 +51,16 @@ const routes = [
     name: 'Episode',
     component: Episode
   },
+  {
+   path: '/error/500',
+   name: '500',
+   component: E500
+ },
+ {
+   path: '/error/404',
+   name: '404',
+   component: E404
+ },
 ]
 
 const router = createRouter({

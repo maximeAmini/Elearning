@@ -5,7 +5,7 @@
       </div>
       <div v-else class="h-full grid justify-items-center">
          <div v-if='this.form==null'
-            class=" flex justify-center items-center h-16 text-center sm:w-10/12 rounded bg-red-200 border  border-red-300">
+            class=" flex justify-center items-center h-16 text-center sm:w-10/12 rounded bg-red-800 border  border-red-900">
             La formation demandé n'existe pas
          </div>
          <div v-else class="w-10/12">
@@ -16,8 +16,8 @@
 </template>
 
 <script>
-   import OneFC from '@/components/OneFC.vue'
-   import Wait from '@/components/WaitOF.vue'
+   import OneFC from '@/components/FormationsC/OneFC.vue'
+   import Wait from '@/components/WaitC/WaitOF.vue'
    import axios from 'axios'
 
    export default {
@@ -37,6 +37,14 @@
             .then((res) => {
                this.form = res.data
                this.fine = true;
+            })
+            .catch(err => {
+               let error = err.response
+               if (error.status == 500) {
+                  this.$router.push({
+                     path: '/error/500'
+                  })
+               }
             })
       }
    }

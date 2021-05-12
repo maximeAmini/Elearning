@@ -5,7 +5,7 @@
             {{this.form.titre}}
             <span class="text-xs bold text-red-300">Le: {{this.form.createdAt}}</span>
          </h1>
-         <div class="ml-auto" v-if='this.form.idUser==this.getSession.idUser'>
+         <div class="ml-auto" v-if='this.form.userId==this.getSession.idUser'>
             <a @click="supp" class="cursor-pointer text-red-500 hover:text-red-600 ml-auto">Supprimé</a> |
             <router-link to="/formations/editF" class="cursor-pointer text-green-500 hover:text-green-600">
                Modifier
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-   import EpisodesC from '@/components/EpisodesC.vue'
+   import EpisodesC from '@/components/EpisodeC/EpisodesC.vue'
    import axios from 'axios'
    export default {
       name: "oneFC",

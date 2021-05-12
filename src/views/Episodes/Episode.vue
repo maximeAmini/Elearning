@@ -16,7 +16,7 @@
 </template>
 
 <script>
-   import EpisodesC from '@/components/EpisodesC.vue'
+   import EpisodesC from '@/components/EpisodeC/EpisodesC.vue'
    import axios from 'axios'
    export default {
       name: "Formations",
