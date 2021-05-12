@@ -1,11 +1,18 @@
 <template>
    <div>
       <div class="home flex flex-col items-center justify-center">
-         <h1 class="text-3xl text-center font-bold text-gray-800 mb-4">
-            Bienvenu sur notre site de formations 100% gratuit inscrivez vous de suite...
+         <h1 class="text-3xl sm:w-3/6 text-center font-bold text-white mb-4">
+            Bienvenu sur notre site de formations 100% gratuit dans tout domaine...
          </h1>
-         <router-link to="/auth" class="bg-green-500 hover:bg-green-600  text-white mt-6 px-6 py-3 ">Rejoindre
-         </router-link>
+         <form class="w-full grid justify-items-center">
+            <input type="search" name="search" id="search" placeholder="Recherche..."
+               class="sm:w-3/6 py-2 px-4 text-2xl border border-gray-400 rounded-lg focus:outline-none focus:border-green-600 focus:shadow-lg">
+            <legend class="text-center text-sm m-2">
+               Suggestion:
+               <span class="text-gray-300 text-xs">Apprendre le C, Les reseaux, Comment dévlopper un site web, </span>
+               <router-link to="/formations" class="text-blue-800 bold">plus...</router-link>
+            </legend>
+         </form>
       </div>
    </div>
 </template>

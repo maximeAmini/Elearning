@@ -1,5 +1,5 @@
 <template>
-   <div id="nav" class="flex items-center w-full fixed inset-x-0 top-0 bg-white shadow-lg z-20 bg-gray-900 text-white">
+   <div id="nav" class="flex items-center w-full fixed inset-x-0 top-0 shadow-lg z-20 bg-gray-900 text-white">
       <div class="text-2xl bolder mr-6 flex items-center">
          <img class="w-8 mr-2" src="@/assets/img/logo.png" /> Elearning
       </div>
