@@ -60,4 +60,26 @@
    #nav a.router-link-exact-active {
       color: #42b983;
    }
+
+   
+   *::-webkit-scrollbar {
+      width: 8px;
+   }
+   *::-webkit-scrollbar-track {
+      background: transparent;
+      padding: 10px;
+   }
+   *::-webkit-scrollbar-thumb {
+      background-color: rgba(5, 150, 105, var(--tw-bg-opacity));
+      border-radius: 100px;
+   }
+   *::-webkit-scrollbar-thumb:hover {
+      background-color: rgba(4, 120, 87, var(--tw-bg-opacity));
+   }
+
+   /* Pour firefox */
+   * {
+      scrollbar-width: 8px;
+      scrollbar-color: blue rgba(5, 150, 105, var(--tw-bg-opacity));
+   }
 </style>

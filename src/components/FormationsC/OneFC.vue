@@ -7,16 +7,17 @@
          </h1>
          <div class="ml-auto" v-if='this.form.userId==this.getSession.idUser'>
             <a @click="supp" class="cursor-pointer text-red-500 hover:text-red-600 ml-auto">Supprimé</a> |
-            <router-link to="/formations/editF" class="cursor-pointer text-green-500 hover:text-green-600">
+            <router-link :to="'/formations/editF/'+this.form.id" class="cursor-pointer text-green-500 hover:text-green-600">
                Modifier
             </router-link>
          </div>
       </div>
       <div class="mt-6">
          {{this.form.discr}}
+         
       </div>
    </div>
-   <EpisodesC :idForm='this.$route.params.idF' />
+   <EpisodesC :idForm='this.$route.params.idF' :userId='this.form.userId' />
 </template>
 
 <script>

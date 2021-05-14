@@ -8,7 +8,7 @@
             class=" flex justify-center items-center h-16 text-center sm:w-10/12 rounded bg-red-800 border  border-red-900">
             La formation demandé n'existe pas
          </div>
-         <div v-else class="w-10/12">
+         <div v-else class="lg:w-10/12 w-full">
             <OneFC :form='form' />
          </div>
       </div>

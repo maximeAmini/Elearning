@@ -9,7 +9,7 @@
             <p class="mr-8">{{this.ep.discr}}</p>
          </div>
       </div>
-      <div class="sm:w-2/6 w-full sm:px-4 py-4">
+      <div class="sm:w-2/6 w-full sm:py-0 px-4 py-4">
          <EpisodesC idForm='1' />
       </div>
    </div>

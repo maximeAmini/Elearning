@@ -1,7 +1,7 @@
 <template>
    <div class="formationsAdd pt-24 lg:mx-20 mx-2 h-full mb-8">
-      <h1 class="text-3xl font-bold">Crée ma formation</h1>
-      <form method="post" @submit.prevent="add" class="my-8 lg:w-8/12 lg:ml-40 w-full">
+      <h1 class="text-3xl font-bold">Modifier ma formation</h1>
+      <form method="post" @submit.prevent="edit" class="my-8 lg:w-8/12 lg:ml-40 w-full">
 
          <div class="flex flex-wrap w-full items-center">
             <label for="titre" class="block mb-4 lg:w-2/12 w-full">Titre :</label>
@@ -19,7 +19,7 @@
 
          <input type="submit"
             class="cursor-pointer bg-green-500 text-white mt-4 px-4 py-2 rounded hover:bg-green-600 float-right"
-            value="Crée">
+            value="Modifier">
 
       </form>
    </div>
@@ -31,6 +31,7 @@
       name: 'addF',
       data() {
          return {
+            form: [],
             titre: '',
             discr: '',
             error: false
@@ -48,24 +49,24 @@
          }
       },
       methods: {
-         add() {
+         edit() {
             const header = {
                'authorization': 'bearer' + this.getSession.token
             }
-            axios.post('http://localhost:4000/formations/', {
+            axios.put('http://localhost:4000/formations/' + this.$route.params.idF, {
                titre: this.titre,
                discr: this.discr
             }, {
                headers: header
-            }).then((rep) => {
+            }).then(() => {
                this.$router.push({
-                  path: '/formations/' + rep.data
+                  path: '/formations/' + this.form.id
                })
             }).catch((error) => {
                console.log(error)
                if (error.response.data.type == 1) {
                   this.error = true
-               }else if (error.response.data.type == 3) {
+               } else if (error.response.data.type == 3) {
                   this.$router.push({
                      path: '/auth'
                   })
@@ -77,6 +78,22 @@
 
             })
          }
+      },
+      created() {
+         axios.get('http://localhost:4000/formations/' + this.$route.params.idF)
+            .then((res) => {
+               this.form = res.data
+               this.titre = this.form.titre
+               this.discr = this.form.discr
+            })
+            .catch(err => {
+               let error = err.response
+               if (error.status == 500) {
+                  this.$router.push({
+                     path: '/error/500'
+                  })
+               }
+            })
       }
    }
 </script>
